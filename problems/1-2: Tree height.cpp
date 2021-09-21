@@ -6,6 +6,7 @@ const int M = 1e5+10;
 int n, root;
 vector<int> g[M];
 
+//height function (dfs)
 int height(int u, int par) {
 	int ans = 0;
 	for (auto v : g[u]){
@@ -16,6 +17,7 @@ int height(int u, int par) {
 }
 
 int main() {
+	//input & making the graph
 	cin >> n;
 	for (int u = 0; u < n; u++){
 		int v; cin >> v;
@@ -26,6 +28,9 @@ int main() {
 		g[u].push_back(v);
 		g[v].push_back(u);
 	}
+
+	//starting the dfs
 	cout << height(root, -1) << endl;
+
 	return 0;
 }
